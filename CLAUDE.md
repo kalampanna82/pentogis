@@ -4,7 +4,7 @@ PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospati
 Owner: kalampanna82. GitHub repo: `kalampanna82/pentogis.com` (renamed from `pentogis`; the old URL redirects, never create a new repo with the old name).
 
 ## Stack and commands
-Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background). `tools.js` is loaded only by `tools.html`. No framework, no package.json, no build step.
+Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background, phone menu, and the tab buttons used by Tools and Maps: `data-tab` buttons show one panel at a time, clicking the open one closes it, `#id` opens a panel). `tools.js` is loaded only by `tools.html`. No framework, no package.json, no build step.
 - Run locally: `python3 -m http.server 8000`, then open http://localhost:8000
 - "Build": none. Check by loading the page at phone width (about 400px) and desktop.
 - HTML and CSS are minified onto few lines. Keep that style when editing; don't reformat whole files.
@@ -12,9 +12,9 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 
 ## Folder map
 - `index.html`, `services.html`, `industries.html`, `tools.html`, `about.html`, `contact.html`: the pages
-- `maps.html`: hub listing map types; one card per type. `slope-map.html`: first map-type landing page.
+- `maps.html`: map types as tab buttons (slope, land cover & change, flood & heat vulnerability, site suitability, parcel & zoning, demographic & census, transit access & walksheds, web & story maps), one panel each. Types and their uses come from the owner-confirmed Services and Industries lists; add new types only when the owner asks. A type with its own landing page gets a "See the full page" button and its example image. `slope-map.html`: first map-type landing page.
 - `maps/`: example map images for the landing pages (WebP).
-- Map-type pages: one page per type, named `<type>-map.html` (e.g. `flood-map.html`). Each has a hero, a real example map with legend, caption and a class table, who uses it, deliverables, process and a call to action, plus `Service` JSON-LD. Add a card to `maps.html` and the URL to `sitemap.xml`.
+- Map-type pages: one page per type, named `<type>-map.html` (e.g. `flood-map.html`). Each has a hero, a real example map with legend, caption and a class table, who uses it, deliverables, process and a call to action, plus `Service` JSON-LD. Add or update its tab panel on `maps.html` and the URL to `sitemap.xml`.
 - Example maps must come from real, credited data (state the source and resolution in the caption); never fake or invented maps. Colour ramps: one hue stepping dark to light for magnitude; check adjacent steps with the dataviz palette validator (normal-vision ΔE ≥ 15). The slope map uses `#352a1a #66502a #9a7a3e #cfa65a #f6e3b4`.
 - `tools.html` + `tools.js`: free GIS tools (coordinate converter with UTM, map scale converter, distance and area). Browser-only: never send or store what visitors type. UTM maths was checked against pyproj (sub-millimetre).
 - `brand/`: logo kit (`svg/`, `png/`; see `brand/README.md` for files, colours and usage rules)
@@ -54,6 +54,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Owner asked for the tools to sit behind buttons at the top: one tool shows at a time, clicking the open tool's button closes it, `tools.html#scale` (or `#coordinates`, `#distance`) opens that tool directly.
 - 2026-10-24: Owner asked for clickable preview and live links with every PR or merge request (rule under Workflow).
 - 2026-10-24: Owner asked for landing pages per map type, starting with slope maps. Added `maps.html` (hub) and `slope-map.html` with a real example (USGS DEM near Jacksboro, TN, from Matplotlib's sample data, about 90 m), and Maps in the main nav and footer.
+- 2026-10-24: Owner asked for a tab for the types of map we offer: Maps page now has eight map-type tab buttons; tab code moved to `script.js` so Tools and Maps share it.
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.

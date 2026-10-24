@@ -29,3 +29,11 @@ if(form)form.addEventListener("submit",e=>{
   window.location.href=`mailto:info@pentogis.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   document.getElementById("form-status").hidden=false;
 });
+
+// Tab buttons (Tools, Maps): show one panel at a time; clicking the open one's button closes it
+const tabs=[...document.querySelectorAll("[data-tab]")];
+const isTab=id=>tabs.some(b=>b.dataset.tab===id);
+const openTab=(id,url=true)=>{tabs.forEach(b=>{const on=b.dataset.tab===id;b.setAttribute("aria-expanded",on);document.getElementById(b.dataset.tab).hidden=!on});if(url)history.replaceState(null,"",id?"#"+id:location.pathname)};
+tabs.forEach(b=>b.addEventListener("click",()=>openTab(b.getAttribute("aria-expanded")==="true"?null:b.dataset.tab)));
+if(tabs.length){const h=location.hash.slice(1);openTab(isTab(h)?h:tabs[0].dataset.tab,false)}
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(isTab(h))openTab(h,false)});
