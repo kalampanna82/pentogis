@@ -13,7 +13,9 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 ## Folder map
 - `index.html`, `services.html`, `industries.html`, `about.html`, `contact.html`: the pages
 - `brand/`: logo kit (`svg/`, `png/`; see `brand/README.md` for files, colours and usage rules)
-- `logo-mark.png` (header logo), `favicon.png`: root copies used by the pages
+- `logo-mark.png`: header logo (favicons come from `brand/`)
+- `404.html`: missing-page page; uses root-absolute paths (`/styles.css`) because it is served at any URL
+- `robots.txt`, `sitemap.xml`, `_headers` (Cloudflare Pages headers). Add new pages to `sitemap.xml`.
 
 ## Brand
 - Obsidian and gold palette (see `:root` in `styles.css` and `brand/README.md`). Use the CSS variables, not new hard-coded colours. The variable names (`--cyan`, `--blue`, `--green`) are leftovers from an older palette; they now hold gold tones.
@@ -35,3 +37,5 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Owner confirmed the site is hosted on Cloudflare. Domain, DNS and Pages settings are the owner's.
 - 2026-10-24: Repo renamed to `kalampanna82/pentogis.com` to match the domain.
 - 2026-10-24: Real page content went live (PR #7: Services, Industries, About, Contact, phone menu, mailto contact form). Owner reviewed every service, industry and toolkit item and confirmed them. Change these lists only when the owner asks.
+- 2026-10-24: Added 404 page, robots.txt, sitemap.xml, `_headers`, home-page structured data; replaced emoji card icons with gold line SVG icons; canonical URLs now extensionless (`/about`), matching Cloudflare Pages. HSTS left to the owner's Cloudflare settings.
+- Open: a "Selected work" or case-study section needs real project examples from the owner.
