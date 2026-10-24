@@ -27,4 +27,5 @@ if(form)form.addEventListener("submit",e=>{
   const subject=`Project inquiry: ${d.get("service")} (${d.get("name")})`;
   const body=[`Name: ${d.get("name")}`,`Email: ${d.get("email")}`,d.get("organization")?`Organization: ${d.get("organization")}`:"",`Area of interest: ${d.get("service")}`,"",d.get("message")].filter((l,i)=>l!==""||i===4).join("\n");
   window.location.href=`mailto:info@pentogis.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById("form-status").hidden=false;
 });
