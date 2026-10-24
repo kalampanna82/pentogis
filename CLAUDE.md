@@ -32,6 +32,10 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 ## Workflow
 - Pull requests only, never push to `main`. Keep each PR small and focused, with a description and test steps. The owner reviews and merges, unless he explicitly asks Claude to merge.
 - The owner handles logins, DNS and hosting settings. Do not attempt these.
+- Clickable links, every time (owner's standing request). Whenever you open a PR, ask the owner to merge, or report a merge, give him direct links he can click straight away:
+  - Before merge: the Cloudflare preview of the changed pages. Cloudflare Pages comments the preview URL on each PR (read the PR comments). The branch preview is `https://<branch>.pentogis.pages.dev`, where `<branch>` is the branch name lowercased, with `/` and other symbols turned into `-`, cut to 28 characters (e.g. `claude/zealous-lovelace-ldfl2r` → `https://claude-zealous-lovelace-ldfl.pentogis.pages.dev`). Link the exact page and section, e.g. `.../tools#scale`.
+  - After merge: the live page on `https://pentogis.com/...` (extensionless, e.g. `https://pentogis.com/tools#scale`), noting it goes live once the `main` deploy check turns green.
+  - Put the same links in the PR description under "Check it".
 - At the end of each session, update "Decisions and open items" below.
 
 ## Decisions and open items
@@ -44,6 +48,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Owner asked to refer image masking, clipping path and other image services to sister platform fixpixz.com with a backlink. Service list on the Services page is a first draft for the owner to confirm against what FixPixz offers.
 - 2026-10-24: Added a Tools page (owner picked: coordinate converter, map scale converter, distance and area calculator) and a Tools link in the nav and footer. Phone menu now switches on below 980px (was 680px) so five nav links never overlap the logo.
 - 2026-10-24: Owner asked for the tools to sit behind buttons at the top: one tool shows at a time, clicking the open tool's button closes it, `tools.html#scale` (or `#coordinates`, `#distance`) opens that tool directly.
+- 2026-10-24: Owner asked for clickable preview and live links with every PR or merge request (rule under Workflow).
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.
