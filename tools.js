@@ -3,6 +3,14 @@ const $=id=>document.getElementById(id);
 const fmt=(n,d=2)=>n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
 const show=(el,html)=>{el.innerHTML=html;el.hidden=!html};
 
+// Tool buttons: show one tool at a time; clicking the open tool's button closes it
+const tabs=[...document.querySelectorAll("[data-tool]")];
+const isTool=id=>tabs.some(b=>b.dataset.tool===id);
+const openTool=(id,url=true)=>{tabs.forEach(b=>{const on=b.dataset.tool===id;b.setAttribute("aria-expanded",on);$(b.dataset.tool).hidden=!on});if(url)history.replaceState(null,"",id?"#"+id:location.pathname)};
+tabs.forEach(b=>b.addEventListener("click",()=>openTool(b.getAttribute("aria-expanded")==="true"?null:b.dataset.tool)));
+if(tabs.length){const h=location.hash.slice(1);openTool(isTool(h)?h:tabs[0].dataset.tool,false)}
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(isTool(h))openTool(h,false)});
+
 // Parse one coordinate part: "40.7128", "-74.006", "40 42 46 N", "N40°42.767'"
 function parsePart(s){
   const hemi=(s.match(/[NSEW]/)||[""])[0];

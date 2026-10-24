@@ -43,6 +43,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Added "How we engage" (project-based, hourly, retainer; no prices) to Services and an FAQ to Contact. Contact form stays mailto (owner had no preference on a form service); it now shows a fallback message after submit.
 - 2026-10-24: Owner asked to refer image masking, clipping path and other image services to sister platform fixpixz.com with a backlink. Service list on the Services page is a first draft for the owner to confirm against what FixPixz offers.
 - 2026-10-24: Added a Tools page (owner picked: coordinate converter, map scale converter, distance and area calculator) and a Tools link in the nav and footer. Phone menu now switches on below 980px (was 680px) so five nav links never overlap the logo.
+- 2026-10-24: Owner asked for the tools to sit behind buttons at the top: one tool shows at a time, clicking the open tool's button closes it, `tools.html#scale` (or `#coordinates`, `#distance`) opens that tool directly.
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.
