@@ -1,14 +1,14 @@
 # PentoGIS (pentogis.com)
 
 PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Industries, About, Contact.
-Owner: kalampanna82.
+Owner: kalampanna82. GitHub repo: `kalampanna82/pentogis.com` (renamed from `pentogis`; the old URL redirects, never create a new repo with the old name).
 
 ## Stack and commands
 Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background). No framework, no package.json, no build step.
 - Run locally: `python3 -m http.server 8000`, then open http://localhost:8000
 - "Build": none. Check by loading the page at phone width (about 400px) and desktop.
 - HTML and CSS are minified onto few lines. Keep that style when editing; don't reformat whole files.
-- Hosting: Cloudflare Pages. Merging to `main` deploys, as long as `main` is the production branch in the Cloudflare Pages project settings.
+- Hosting: Cloudflare Pages (project `pentogis`). Merging to `main` deploys, as long as `main` is the production branch in the Cloudflare Pages project settings.
 
 ## Folder map
 - `index.html`, `services.html`, `industries.html`, `about.html`, `contact.html`: the pages
@@ -33,3 +33,4 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 ## Decisions and open items
 - 2026-10-24: Added this CLAUDE.md.
 - 2026-10-24: Owner confirmed the site is hosted on Cloudflare. Domain, DNS and Pages settings are the owner's.
+- 2026-10-24: Repo renamed to `kalampanna82/pentogis.com` to match the domain.
