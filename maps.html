@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Map Types: Slope, Land Cover, Flood, Suitability, Zoning & More | PentoGIS</title>
+<meta name="description" content="Map types PentoGIS offers: slope, land cover and change, flood and heat vulnerability, site suitability, parcel and zoning, demographic, transit access, and web maps.">
+<link rel="canonical" href="https://pentogis.com/maps">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="Maps | PentoGIS">
+<meta property="og:description" content="The maps PentoGIS makes and what each one shows.">
+<meta property="og:url" content="https://pentogis.com/maps">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="PentoGIS home"><img src="logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="services.html">Services</a>
+    <a href="maps.html" aria-current="page">Maps</a>
+    <a href="industries.html">Industries</a>
+    <a href="tools.html">Tools</a>
+    <a href="blog/">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="reveal">
+    <p class="kicker">Maps</p>
+    <h1>Maps we make.</h1>
+    <p class="lead">Each map type answers a different question about a place. Pick a type below to see what it shows, who uses it, and what you get.</p>
+  </div>
+<div class="map-tabs-wrap"><div class="tool-tabs map-tabs" role="group" aria-label="Choose a map type"><button type="button" data-tab="slope" aria-controls="slope" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18L3 7v13Z"/><path d="M7 20a4 4 0 0 0-4-4"/></svg>Slope</button><button type="button" data-tab="land-cover" aria-controls="land-cover" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20C4 11 9 5 20 4c-1 11-7 16-16 16ZM4 20 14 10"/></svg>Land cover & change</button><button type="button" data-tab="flood-heat" aria-controls="flood-heat" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>Flood & heat vulnerability</button><button type="button" data-tab="suitability" aria-controls="suitability" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>Site suitability</button><button type="button" data-tab="parcel-zoning" aria-controls="parcel-zoning" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8h18L12 3ZM6 10.5V16M10 10.5V16M14 10.5V16M18 10.5V16M4 18.5h16M3 21h18"/></svg>Parcel & zoning</button><button type="button" data-tab="demographic" aria-controls="demographic" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 14.2c2.6.2 4.5 2.3 4.5 5.3"/></svg>Demographic & census</button><button type="button" data-tab="transit-access" aria-controls="transit-access" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H16a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h7.5"/></svg>Transit access & walksheds</button><button type="button" data-tab="web-story" aria-controls="web-story" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg>Web & story maps</button></div></div>
+</section>
+
+<section class="section map-type" id="slope">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18L3 7v13Z"/><path d="M7 20a4 4 0 0 0-4-4"/></svg></div>
+      <h2>Slope maps</h2>
+      <p>How steep the ground is, cell by cell, from lidar and elevation data. Shows where land is flat enough to build, where grading gets costly, and where erosion is a risk.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Site selection and buildable area</li><li>Stormwater and erosion control</li><li>Road, trail and accessible-route grades</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Slope raster, slope-class polygons, print maps, area by class</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about slope maps</a><a class="btn ghost" href="slope-map.html">See the full slope map page</a></div>
+    </div>
+    <a class="map-type-img" href="slope-map.html"><img src="maps/slope-map-jacksboro.webp" width="1209" height="1032" alt="Example slope map near Jacksboro, Tennessee" loading="lazy"></a>
+  </div>
+</section>
+
+<section class="section map-type" id="land-cover">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20C4 11 9 5 20 4c-1 11-7 16-16 16ZM4 20 14 10"/></svg></div>
+      <h2>Land cover and change maps</h2>
+      <p>Classified satellite imagery showing forest, water, farmland, built-up land and more, and how each has changed between dates.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Habitat and open-space change</li><li>Urban growth and impervious surface</li><li>Baselines for environmental reports</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Classified rasters, change maps, area statistics by class and year</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about land cover and change maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="flood-heat">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></div>
+      <h2>Flood and heat vulnerability maps</h2>
+      <p>Where flooding and extreme heat hit hardest, combining hazard layers, vegetation and surface temperature indicators, and who lives there.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Hazard mitigation and resilience plans</li><li>Grant applications</li><li>Cooling-centre and tree-planting priorities</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Hazard and vulnerability layers, priority maps, summary by neighbourhood</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about flood and heat vulnerability maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="suitability">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <h2>Site suitability maps</h2>
+      <p>Several criteria scored and weighted into one map, such as slope, zoning, access, utilities and constraints, to rank the best locations.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Site selection for development or facilities</li><li>Constraints and zoning review</li><li>Shortlisting parcels before due diligence</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Suitability surface, ranked site list, criteria maps and method notes</p>
+      <p>New to this? Read <a class="text-link" href="blog/what-is-suitability-analysis.html">What is suitability analysis?</a></p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about site suitability maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="parcel-zoning">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8h18L12 3ZM6 10.5V16M10 10.5V16M14 10.5V16M18 10.5V16M4 18.5h16M3 21h18"/></svg></div>
+      <h2>Parcel and zoning maps</h2>
+      <p>Parcels, zoning districts, land use and assets mapped together and kept clean, for staff, boards and the public.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Zoning and land use analysis</li><li>Asset inventories and condition maps</li><li>Public-facing municipal maps</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Clean parcel and zoning layers, print maps, web map</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about parcel and zoning maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="demographic">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 14.2c2.6.2 4.5 2.3 4.5 5.3"/></svg></div>
+      <h2>Demographic and census maps</h2>
+      <p>Census and survey data mapped by tract, block group or custom area: population, income, housing, age and more.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Housing need and affordability</li><li>Environmental justice screening</li><li>Market and trade-area profiles</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Thematic maps, area profiles, tables and dashboard-ready data</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about demographic and census maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="transit-access">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H16a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h7.5"/></svg></div>
+      <h2>Transit access and walkshed maps</h2>
+      <p>How far people can walk or travel along the real street and transit network, and which homes, jobs and services fall within reach.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Transit access and walksheds</li><li>Service-area and need mapping</li><li>Corridor and safety analysis</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Network service areas, access scores, maps and summary tables</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about transit access and walkshed maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-type" id="web-story">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></div>
+      <h2>Web maps and story maps</h2>
+      <p>Interactive maps and map-led stories people can open in a browser, from public viewers to field data collection apps.</p>
+      <p class="kicker">Used for</p>
+      <ul class="ticks plain"><li>Public engagement and outreach</li><li>ArcGIS Online and Experience Builder apps</li><li>Field Maps and Survey123 workflows</li></ul>
+      <p class="map-type-gets"><b>You get:</b> Hosted web map or app, story map, admin guide</p>
+      <div class="btns"><a class="btn primary" href="contact.html">Ask about web maps and story maps</a></div>
+    </div>
+    <div class="panel reveal map-type-cta"><p class="kicker">Want an example?</p><p>Tell us the place and the question, and we'll show you what this map would look like for your area.</p><a class="text-link" href="contact.html">Contact PentoGIS</a></div>
+  </div>
+</section>
+
+<section class="section map-hub-foot">
+  <p class="form-note reveal">Need a different kind of map? <a class="text-link" href="contact.html">Tell us what you're trying to find out.</a></p>
+</section>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="services.html">Services</a><a href="maps.html">Maps</a><a href="industries.html">Industries</a><a href="tools.html">Tools</a><a href="blog/">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
