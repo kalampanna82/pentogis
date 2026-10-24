@@ -1,17 +1,18 @@
 # PentoGIS (pentogis.com)
 
-PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Industries, About, Contact.
+PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Industries, Tools, About, Contact.
 Owner: kalampanna82. GitHub repo: `kalampanna82/pentogis.com` (renamed from `pentogis`; the old URL redirects, never create a new repo with the old name).
 
 ## Stack and commands
-Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background). No framework, no package.json, no build step.
+Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background). `tools.js` is loaded only by `tools.html`. No framework, no package.json, no build step.
 - Run locally: `python3 -m http.server 8000`, then open http://localhost:8000
 - "Build": none. Check by loading the page at phone width (about 400px) and desktop.
 - HTML and CSS are minified onto few lines. Keep that style when editing; don't reformat whole files.
 - Hosting: Cloudflare Pages (project `pentogis`). Merging to `main` deploys, as long as `main` is the production branch in the Cloudflare Pages project settings.
 
 ## Folder map
-- `index.html`, `services.html`, `industries.html`, `about.html`, `contact.html`: the pages
+- `index.html`, `services.html`, `industries.html`, `tools.html`, `about.html`, `contact.html`: the pages
+- `tools.html` + `tools.js`: free GIS tools (coordinate converter with UTM, map scale converter, distance and area). Browser-only: never send or store what visitors type. UTM maths was checked against pyproj (sub-millimetre).
 - `brand/`: logo kit (`svg/`, `png/`; see `brand/README.md` for files, colours and usage rules)
 - `logo-mark.png`: header logo (favicons come from `brand/`)
 - `404.html`: missing-page page; uses root-absolute paths (`/styles.css`) because it is served at any URL
@@ -41,6 +42,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Added 404 page, robots.txt, sitemap.xml, `_headers`, home-page structured data; replaced emoji card icons with gold line SVG icons; canonical URLs now extensionless (`/about`), matching Cloudflare Pages. HSTS left to the owner's Cloudflare settings.
 - 2026-10-24: Added "How we engage" (project-based, hourly, retainer; no prices) to Services and an FAQ to Contact. Contact form stays mailto (owner had no preference on a form service); it now shows a fallback message after submit.
 - 2026-10-24: Owner asked to refer image masking, clipping path and other image services to sister platform fixpixz.com with a backlink. Service list on the Services page is a first draft for the owner to confirm against what FixPixz offers.
+- 2026-10-24: Added a Tools page (owner picked: coordinate converter, map scale converter, distance and area calculator) and a Tools link in the nav and footer. Phone menu now switches on below 980px (was 680px) so five nav links never overlap the logo.
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.
