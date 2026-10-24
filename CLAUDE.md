@@ -34,3 +34,4 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Added this CLAUDE.md.
 - 2026-10-24: Owner confirmed the site is hosted on Cloudflare. Domain, DNS and Pages settings are the owner's.
 - 2026-10-24: Repo renamed to `kalampanna82/pentogis.com` to match the domain.
+- 2026-10-24: Real page content went live (PR #7: Services, Industries, About, Contact, phone menu, mailto contact form). Owner reviewed every service, industry and toolkit item and confirmed them. Change these lists only when the owner asks.
