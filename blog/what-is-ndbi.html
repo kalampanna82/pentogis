@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Is NDBI? Built-Up Index for Mapping Urban Areas | PentoGIS</title>
+<meta name="description" content="What the Normalized Difference Built-up Index is, how it's calculated, worked values, why it confuses soil and buildings, and better ways to map urban areas.">
+<link rel="canonical" href="https://pentogis.com/blog/what-is-ndbi">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="What is NDBI? Mapping built-up land | PentoGIS">
+<meta property="og:description" content="How satellites spot roofs and roads, and why NDBI works best alongside other indices.">
+<meta property="og:url" content="https://pentogis.com/blog/what-is-ndbi">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="../brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What is NDBI? Mapping built-up land","description":"What the Normalized Difference Built-up Index is, how it's calculated, worked values, why it confuses soil and buildings, and better ways to map urban areas.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Organization","name":"PentoGIS","url":"https://pentogis.com/"},"publisher":{"@type":"Organization","name":"PentoGIS","logo":{"@type":"ImageObject","url":"https://pentogis.com/brand/png/pentogis-social-avatar-1024.png"}},"mainEntityOfPage":"https://pentogis.com/blog/what-is-ndbi","image":"https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="PentoGIS home"><img src="../logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="../services.html">Services</a>
+    <a href="../maps.html">Maps</a>
+    <a href="../industries.html">Industries</a>
+    <a href="../tools.html">Tools</a>
+    <a href="./" aria-current="page">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+<header class="page-hero article-hero">
+  <div class="reveal">
+    <p class="kicker"><a href="./">Blog</a> / Remote sensing</p>
+    <h1>What is NDBI? Mapping built-up land</h1>
+    <p class="lead">How satellites spot roofs and roads, and why NDBI works best alongside other indices.</p>
+    <p class="byline">PentoGIS · <time datetime="2026-10-24">24 October 2026</time> · 5 min read</p>
+  </div>
+</header>
+
+<div class="article-body">
+<p>The <strong>Normalized Difference Built-up Index (NDBI)</strong> highlights built-up land, such as roofs, roads and parking, in satellite imagery. Proposed by Zha, Gao and Ni in 2003, it's a quick way to map urban areas and watch towns grow over time.</p>
+<h2>How NDBI works</h2>
+<p>Many built surfaces, such as concrete, asphalt and some roofing, reflect more shortwave infrared (SWIR) than near-infrared (NIR). Vegetation does the opposite. NDBI compares the two:</p>
+<p class="formula">NDBI = (SWIR1 − NIR) ÷ (SWIR1 + NIR)</p>
+<p>Positive values suggest built-up land or bare ground; negative values suggest vegetation or water. It's the same two bands as the moisture index NDMI, with the sign flipped.</p>
+<figure class="diagram-figure"><svg class="diagram" viewBox="0 0 640 136" role="img" aria-labelledby="ndbi-t ndbi-d"><title id="ndbi-t">Where typical surfaces fall on the NDBI scale</title><desc id="ndbi-d">NDBI runs from minus 1 to 1. Vegetation is about minus 0.34 and water minus 0.33. Bare soil is 0.12 and built-up land 0.17, close together, which is NDBI's main weakness.</desc><defs><linearGradient id="ndbi-g"><stop offset="0.0" stop-color="#352a1a"/><stop offset="0.25" stop-color="#66502a"/><stop offset="0.5" stop-color="#9a7a3e"/><stop offset="0.75" stop-color="#cfa65a"/><stop offset="1.0" stop-color="#f6e3b4"/></linearGradient></defs><rect x="30" y="46" width="580" height="22" rx="6" fill="url(#ndbi-g)"/><text x="30.0" y="88" class="dg-l" text-anchor="middle">-1</text><text x="175.0" y="88" class="dg-l" text-anchor="middle">-0.5</text><text x="320.0" y="88" class="dg-l" text-anchor="middle">0</text><text x="465.0" y="88" class="dg-l" text-anchor="middle">0.5</text><text x="610.0" y="88" class="dg-l" text-anchor="middle">1</text><path d="M221.4 44v-6" class="dg-tick"/><text x="221.4" y="34" class="dg-l" text-anchor="middle">Vegetation −0.34</text><path d="M224.3 70v8" class="dg-tick"/><text x="224.3" y="124" class="dg-l" text-anchor="middle">Water −0.33</text><path d="M354.8 44v-6" class="dg-tick"/><text x="354.8" y="34" class="dg-l" text-anchor="middle">Bare soil 0.12</text><path d="M369.3 70v8" class="dg-tick"/><text x="369.3" y="124" class="dg-l" text-anchor="middle">Built-up 0.17</text></svg><figcaption>Values use typical surface reflectance, the share of light reflected from 0 to 1. They're illustrative; real values vary with sensor, season and site.</figcaption></figure>
+<div class="table-wrap"><table class="data-table"><caption>Worked values</caption><thead><tr><th scope="col">Surface</th><th scope="col" class="num">NIR</th><th scope="col" class="num">SWIR1</th><th scope="col" class="num">NDBI</th></tr></thead><tbody><tr><td>Vegetation</td><td class="num">0.45</td><td class="num">0.22</td><td class="num">−0.34</td></tr><tr><td>Water</td><td class="num">0.02</td><td class="num">0.01</td><td class="num">−0.33</td></tr><tr><td>Bare soil</td><td class="num">0.25</td><td class="num">0.32</td><td class="num">+0.12</td></tr><tr><td>Built-up</td><td class="num">0.20</td><td class="num">0.28</td><td class="num">+0.17</td></tr></tbody></table></div>
+<p>For built-up land: (0.28 − 0.20) ÷ (0.28 + 0.20) = 0.17.</p>
+<h2>NDBI's weak spot: bare soil</h2>
+<p>Look at the table again: bare soil (0.12) and built-up land (0.17) are very close. Dry fields, construction sites, sand and fallow farmland all score like towns. That's NDBI's main limitation, and why it's rarely used alone.</p>
+<p>Common fixes:</p>
+<ul class="ticks plain"><li><b>Combine with NDVI.</b> The "built-up index" BU = NDBI − NDVI (He and others, 2010) pushes vegetation far down, though soil and buildings still sit close together.</li><li><b>Mask water</b> with <a class='text-link' href='what-is-ndwi.html'>MNDWI</a> first, since water can also score oddly.</li><li><b>Use several dates.</b> Fields change with the seasons; buildings don't.</li><li><b>Classify instead.</b> Machine learning classifiers using all bands, plus building footprints where available, separate soil and buildings much better than any single index.</li></ul>
+<aside class="promo" aria-label="From PentoGIS"><p class="kicker">Map service</p><p><b>Urban heat and growth maps.</b> Built-up land drives urban heat. PentoGIS maps built-up area, tree cover and heat together, by neighbourhood. <a class="text-link" href="../maps.html#flood-heat">See heat vulnerability maps →</a></p></aside>
+<h2>Which bands to use</h2>
+<div class="table-wrap"><table class="data-table"><caption>Bands for NDBI</caption><thead><tr><th scope="col">Satellite</th><th scope="col">NIR</th><th scope="col">SWIR1</th><th scope="col">Resolution</th></tr></thead><tbody><tr><td>Sentinel-2</td><td>B8 (or B8A)</td><td>B11</td><td>20 m for SWIR1</td></tr><tr><td>Landsat 8 and 9</td><td>B5</td><td>B6</td><td>30 m</td></tr></tbody></table></div>
+<p>At 20 to 30 m, one pixel covers several houses, gardens and street trees, so NDBI measures how built-up an area is rather than mapping single buildings. Landsat's archive back to the 1980s makes it good for tracking long-term growth.</p>
+<h2>Uses</h2>
+<ul class="ticks plain"><li><b>Urban growth</b>: how much land a town has built on since 2000, and where.</li><li><b>Impervious surface</b>: estimating paved area for stormwater planning.</li><li><b>Urban heat</b>: built-up land with little vegetation usually matches the hottest streets.</li><li><b>Planning baselines</b>: a quick first map before detailed land use work.</li></ul>
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Can NDBI map individual buildings?</summary><p>Not at 10 to 30 m. For buildings, use high-resolution imagery or existing building footprint datasets.</p></details><details><summary>Why does my NDBI map show fields as urban?</summary><p>Bare or dry soil reflects like built surfaces in SWIR and NIR. Use images from when fields are green, or combine with NDVI.</p></details><details><summary>Is NDBI the same as impervious surface?</summary><p>Not exactly. It's a proxy that correlates with built-up and impervious area, but needs calibration to estimate percentages.</p></details></div>
+
+<aside class="article-cta">
+<p class="kicker">Mapping urban growth or heat?</p>
+<h2>We'll map where your area has built up.</h2>
+<p>Built-up change, impervious surface and heat, with numbers by neighbourhood.</p>
+<div class="btns"><a class="btn primary" href="../contact.html">Talk to us</a><a class="btn ghost" href="../maps.html#flood-heat">See heat maps</a></div>
+</aside>
+<nav class="related" aria-label="Related articles"><p class="kicker">Keep reading</p><ul><li><a href="what-is-ndvi.html"><span>Remote sensing</span>What is NDVI? Measuring vegetation from space</a></li><li><a href="spectral-indices-cheat-sheet.html"><span>Remote sensing</span>Spectral indices cheat sheet: NDVI, NDWI, NBR and more</a></li><li><a href="what-is-ndwi.html"><span>Remote sensing</span>What is NDWI? Mapping water from space</a></li></ul></nav>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="../services.html">Services</a><a href="../maps.html">Maps</a><a href="../industries.html">Industries</a><a href="../tools.html">Tools</a><a href="./">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

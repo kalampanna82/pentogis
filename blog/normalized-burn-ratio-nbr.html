@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Normalized Burn Ratio (NBR) and dNBR: Mapping Burn Severity | PentoGIS</title>
+<meta name="description" content="How the Normalized Burn Ratio and dNBR map wildfire burn severity from satellite imagery, with worked examples, USGS severity classes and limits.">
+<link rel="canonical" href="https://pentogis.com/blog/normalized-burn-ratio-nbr">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="Normalized Burn Ratio (NBR): mapping wildfire burn severity | PentoGIS">
+<meta property="og:description" content="How before-and-after satellite images measure how badly land burned, and how to read dNBR.">
+<meta property="og:url" content="https://pentogis.com/blog/normalized-burn-ratio-nbr">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="../brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Normalized Burn Ratio (NBR): mapping wildfire burn severity","description":"How the Normalized Burn Ratio and dNBR map wildfire burn severity from satellite imagery, with worked examples, USGS severity classes and limits.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Organization","name":"PentoGIS","url":"https://pentogis.com/"},"publisher":{"@type":"Organization","name":"PentoGIS","logo":{"@type":"ImageObject","url":"https://pentogis.com/brand/png/pentogis-social-avatar-1024.png"}},"mainEntityOfPage":"https://pentogis.com/blog/normalized-burn-ratio-nbr","image":"https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="PentoGIS home"><img src="../logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="../services.html">Services</a>
+    <a href="../maps.html">Maps</a>
+    <a href="../industries.html">Industries</a>
+    <a href="../tools.html">Tools</a>
+    <a href="./" aria-current="page">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+<header class="page-hero article-hero">
+  <div class="reveal">
+    <p class="kicker"><a href="./">Blog</a> / Remote sensing</p>
+    <h1>Normalized Burn Ratio (NBR): mapping wildfire burn severity</h1>
+    <p class="lead">How before-and-after satellite images measure how badly land burned, and how to read dNBR.</p>
+    <p class="byline">PentoGIS · <time datetime="2026-10-24">24 October 2026</time> · 6 min read</p>
+  </div>
+</header>
+
+<div class="article-body">
+<p>After a wildfire, land managers need to know which areas burned and how badly, often across thousands of hectares. The <strong>Normalized Burn Ratio (NBR)</strong> does this from satellite imagery. Comparing NBR before and after a fire, called <strong>dNBR</strong>, gives a burn severity map used for recovery planning, erosion risk and habitat assessment.</p>
+<h2>How NBR works</h2>
+<p>Healthy vegetation reflects strongly in near-infrared (NIR) and weakly in the second shortwave infrared band (SWIR2). Burning flips this: charred, bare ground reflects less NIR and more SWIR2.</p>
+<p class="formula">NBR = (NIR − SWIR2) ÷ (NIR + SWIR2)</p>
+<p>High NBR means healthy vegetation; low or negative NBR means burned or bare land.</p>
+<h2>dNBR: before minus after</h2>
+<p>A single NBR image can't tell burned land from naturally bare ground. Subtracting the post-fire NBR from the pre-fire NBR shows <em>change</em>:</p>
+<p class="formula">dNBR = NBR<sub>before</sub> − NBR<sub>after</sub></p>
+<div class="table-wrap"><table class="data-table"><caption>Worked examples</caption><thead><tr><th scope="col"></th><th scope="col" class="num">NIR</th><th scope="col" class="num">SWIR2</th><th scope="col" class="num">NBR</th><th scope="col" class="num">dNBR</th></tr></thead><tbody><tr><td>Forest before the fire</td><td class="num">0.45</td><td class="num">0.10</td><td class="num">0.64</td><td class="num"></td></tr><tr><td>Same forest after</td><td class="num">0.12</td><td class="num">0.22</td><td class="num">−0.29</td><td class="num"><b>0.93</b></td></tr><tr><td>Woodland before</td><td class="num">0.40</td><td class="num">0.12</td><td class="num">0.54</td><td class="num"></td></tr><tr><td>Same woodland after a light burn</td><td class="num">0.30</td><td class="num">0.15</td><td class="num">0.33</td><td class="num"><b>0.21</b></td></tr></tbody></table></div>
+<p>For the forest: NBR before = (0.45 − 0.10) ÷ (0.45 + 0.10) = 0.64; after = (0.12 − 0.22) ÷ (0.12 + 0.22) = −0.29; dNBR = 0.64 − (−0.29) = 0.93. Values use typical surface reflectance, the share of light reflected from 0 to 1. They're illustrative; real values vary with sensor, season and site.</p>
+<h2>Reading burn severity</h2>
+<p>The USGS FIREMON program (Key and Benson) published widely used dNBR classes:</p>
+<figure class="diagram-figure"><svg class="diagram" viewBox="0 0 640 154" role="img" aria-labelledby="dnbr-t dnbr-d"><title id="dnbr-t">dNBR burn severity classes</title><desc id="dnbr-d">A scale of dNBR values from minus 0.5 to 1.3 divided into USGS classes: enhanced regrowth below minus 0.1, unburned to 0.1, low to 0.27, moderate-low to 0.44, moderate-high to 0.66, and high above. The forest example at 0.93 falls in high severity; the light burn example at 0.21 is low severity.</desc><rect x="20.0" y="46" width="131.3" height="26" rx="4" class="dg-n1"><title>Regrowth: -0.50 to -0.10</title></rect><text x="86.7" y="90" class="dg-l" text-anchor="middle">Regrowth</text><rect x="153.3" y="46" width="64.7" height="26" rx="4" class="dg-n2"><title>Unburned: -0.10 to +0.10</title></rect><text x="186.7" y="90" class="dg-l" text-anchor="middle">Unburned</text><rect x="220.0" y="46" width="54.7" height="26" rx="4" fill="#66502a"><title>Low: +0.10 to +0.27</title></rect><text x="248.3" y="90" class="dg-l" text-anchor="middle">Low</text><rect x="276.7" y="46" width="54.7" height="26" rx="4" fill="#9a7a3e"><title>Moderate-low: +0.27 to +0.44</title></rect><text x="305.0" y="106" class="dg-l" text-anchor="middle">Moderate-low</text><rect x="333.3" y="46" width="71.3" height="26" rx="4" fill="#cfa65a"><title>Moderate-high: +0.44 to +0.66</title></rect><text x="370.0" y="90" class="dg-l" text-anchor="middle">Moderate-high</text><rect x="406.7" y="46" width="211.3" height="26" rx="4" fill="#f6e3b4"><title>High: +0.66 to +1.30</title></rect><text x="513.3" y="90" class="dg-l" text-anchor="middle">High</text><text x="20.0" y="40" class="dg-v" text-anchor="middle">-0.5</text><text x="153.3" y="40" class="dg-v" text-anchor="middle">-0.1</text><text x="220.0" y="40" class="dg-v" text-anchor="middle">0.1</text><text x="276.7" y="40" class="dg-v" text-anchor="middle">0.27</text><text x="333.3" y="40" class="dg-v" text-anchor="middle">0.44</text><text x="406.7" y="40" class="dg-v" text-anchor="middle">0.66</text><text x="620.0" y="40" class="dg-v" text-anchor="middle">1.3</text><path d="M496.7 114v12" class="dg-tick"/><text x="496.7" y="142" class="dg-l" text-anchor="middle"><tspan class="dg-b">Forest example: dNBR 0.93</tspan></text><path d="M256.7 114v12" class="dg-tick"/><text x="256.7" y="142" class="dg-l" text-anchor="middle"><tspan class="dg-b">Light burn example: 0.21</tspan></text></svg><figcaption>dNBR severity classes after Key and Benson (USGS FIREMON). Negative values mean vegetation is greener than before. Hover a class for its range.</figcaption></figure>
+<div class="table-wrap"><table class="data-table"><caption>dNBR burn severity classes</caption><thead><tr><th scope="col" class="num">dNBR</th><th scope="col">Severity</th></tr></thead><tbody><tr><td class="num">Below −0.25</td><td>High post-fire regrowth</td></tr><tr><td class="num">−0.25 to −0.10</td><td>Low post-fire regrowth</td></tr><tr><td class="num">−0.10 to +0.10</td><td>Unburned</td></tr><tr><td class="num">+0.10 to +0.27</td><td>Low severity</td></tr><tr><td class="num">+0.27 to +0.44</td><td>Moderate-low severity</td></tr><tr><td class="num">+0.44 to +0.66</td><td>Moderate-high severity</td></tr><tr><td class="num">Above +0.66</td><td>High severity</td></tr></tbody></table></div>
+<p>These breaks are a starting point. Severity looks different in grassland, shrubland and forest, so field plots are used to calibrate them for each region.</p>
+<aside class="promo" aria-label="From PentoGIS"><p class="kicker">Map service</p><p><b>Land cover change maps.</b> PentoGIS maps burned area, burn severity and recovery from satellite imagery, with hectares by class for your land. <a class="text-link" href="../maps.html#land-cover">See land cover and change maps →</a></p></aside>
+<h2>Which bands to use</h2>
+<div class="table-wrap"><table class="data-table"><caption>Bands for NBR</caption><thead><tr><th scope="col">Satellite</th><th scope="col">NIR</th><th scope="col">SWIR2</th><th scope="col">Resolution</th></tr></thead><tbody><tr><td>Sentinel-2</td><td>B8 (or B8A)</td><td>B12</td><td>20 m for SWIR2</td></tr><tr><td>Landsat 8 and 9</td><td>B5</td><td>B7</td><td>30 m</td></tr></tbody></table></div>
+<p>Pick pre- and post-fire images from the same season and with similar sun angles, so the change you measure is the fire, not the calendar. Many studies use an image soon after the fire and another a year later to see which areas recover.</p>
+<h2>Limits</h2>
+<ul class="ticks plain"><li><b>Water</b> gives misleading NBR values because both bands are close to zero. Mask water first, for example with <a class='text-link' href='what-is-ndwi.html'>NDWI</a>.</li><li><b>Clouds and smoke</b> must be removed from both images.</li><li><b>Sparse vegetation</b> has little to lose, so even severe fires give small dNBR. Relative dNBR (RdNBR) adjusts for this.</li><li><b>Severity is not the same as ecological impact.</b> Field checks are still needed.</li></ul>
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>What's the difference between NBR and NDVI?</summary><p>Both use NIR. NDVI pairs it with red light and tracks greenness; NBR pairs it with SWIR2 and is more sensitive to charred ground and lost moisture.</p></details><details><summary>How soon after a fire can I map it?</summary><p>As soon as a clear image is available, often within days. A second assessment a year later shows lasting effects.</p></details><details><summary>Is there free burn severity data?</summary><p>In the US, the Monitoring Trends in Burn Severity (MTBS) program publishes maps for large fires.</p></details></div>
+
+<aside class="article-cta">
+<p class="kicker">Mapping a fire or its recovery?</p>
+<h2>We'll map burn severity and track regrowth.</h2>
+<p>Before-and-after imagery, severity classes and area totals for your land.</p>
+<div class="btns"><a class="btn primary" href="../contact.html">Talk to us</a><a class="btn ghost" href="../maps.html#land-cover">See change maps</a></div>
+</aside>
+<nav class="related" aria-label="Related articles"><p class="kicker">Keep reading</p><ul><li><a href="what-is-ndvi.html"><span>Remote sensing</span>What is NDVI? Measuring vegetation from space</a></li><li><a href="what-is-ndwi.html"><span>Remote sensing</span>What is NDWI? Mapping water from space</a></li><li><a href="spectral-indices-cheat-sheet.html"><span>Remote sensing</span>Spectral indices cheat sheet: NDVI, NDWI, NBR and more</a></li></ul></nav>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="../services.html">Services</a><a href="../maps.html">Maps</a><a href="../industries.html">Industries</a><a href="../tools.html">Tools</a><a href="./">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

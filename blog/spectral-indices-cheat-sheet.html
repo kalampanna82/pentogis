@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spectral Indices Cheat Sheet: NDVI, EVI, SAVI, NDWI, MNDWI, NDMI, NDBI, NBR | PentoGIS</title>
+<meta name="description" content="A one-page reference to the common remote sensing indices: formulas, what they measure, and the exact Sentinel-2 and Landsat 8/9 bands for each.">
+<link rel="canonical" href="https://pentogis.com/blog/spectral-indices-cheat-sheet">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="Spectral indices cheat sheet: NDVI, NDWI, NBR and more | PentoGIS">
+<meta property="og:description" content="The eight remote sensing indices you'll meet most, with formulas and the exact satellite bands for each.">
+<meta property="og:url" content="https://pentogis.com/blog/spectral-indices-cheat-sheet">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="../brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spectral indices cheat sheet: NDVI, NDWI, NBR and more","description":"A one-page reference to the common remote sensing indices: formulas, what they measure, and the exact Sentinel-2 and Landsat 8/9 bands for each.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Organization","name":"PentoGIS","url":"https://pentogis.com/"},"publisher":{"@type":"Organization","name":"PentoGIS","logo":{"@type":"ImageObject","url":"https://pentogis.com/brand/png/pentogis-social-avatar-1024.png"}},"mainEntityOfPage":"https://pentogis.com/blog/spectral-indices-cheat-sheet","image":"https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="PentoGIS home"><img src="../logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="../services.html">Services</a>
+    <a href="../maps.html">Maps</a>
+    <a href="../industries.html">Industries</a>
+    <a href="../tools.html">Tools</a>
+    <a href="./" aria-current="page">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+<header class="page-hero article-hero">
+  <div class="reveal">
+    <p class="kicker"><a href="./">Blog</a> / Remote sensing</p>
+    <h1>Spectral indices cheat sheet: NDVI, NDWI, NBR and more</h1>
+    <p class="lead">The eight remote sensing indices you'll meet most, with formulas and the exact satellite bands for each.</p>
+    <p class="byline">PentoGIS · <time datetime="2026-10-24">24 October 2026</time> · 5 min read</p>
+  </div>
+</header>
+
+<div class="article-body">
+<p>A <strong>spectral index</strong> combines two or more bands of a satellite image into one number that highlights something specific: vegetation, water, moisture, buildings or burned land. Most follow the same pattern, a <em>normalized difference</em> (A − B) ÷ (A + B), which keeps values between −1 and 1. This page collects the common ones in one place.</p>
+<h2>Why different surfaces stand out</h2>
+<p>Every material reflects light differently across wavelengths, its <b>spectral signature</b>. Indices work by picking two bands where the target behaves very differently from everything else.</p>
+<figure class="diagram-figure"><svg class="diagram" viewBox="0 0 640 274" role="img" aria-labelledby="signatures-t signatures-d"><title id="signatures-t">Simplified spectral signatures</title><desc id="signatures-d">Reflectance at six satellite bands for water, vegetation and bare soil. Water is dark everywhere and darkest in the infrared. Vegetation is low in red and jumps to 0.45 in near-infrared. Bare soil rises steadily to about 0.3 in the shortwave infrared.</desc><line x1="56" y1="230.0" x2="540" y2="230.0" class="dg-grid"/><text x="48" y="234.0" class="dg-l" text-anchor="end">0.0</text><line x1="56" y1="188.0" x2="540" y2="188.0" class="dg-grid"/><text x="48" y="192.0" class="dg-l" text-anchor="end">0.1</text><line x1="56" y1="146.0" x2="540" y2="146.0" class="dg-grid"/><text x="48" y="150.0" class="dg-l" text-anchor="end">0.2</text><line x1="56" y1="104.0" x2="540" y2="104.0" class="dg-grid"/><text x="48" y="108.0" class="dg-l" text-anchor="end">0.3</text><line x1="56" y1="62.0" x2="540" y2="62.0" class="dg-grid"/><text x="48" y="66.0" class="dg-l" text-anchor="end">0.4</text><line x1="56" y1="20.0" x2="540" y2="20.0" class="dg-grid"/><text x="48" y="24.0" class="dg-l" text-anchor="end">0.5</text><text x="56.0" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">Blue</tspan></text><text x="56.0" y="262" class="dg-l" text-anchor="middle">490 nm</text><text x="152.8" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">Green</tspan></text><text x="152.8" y="262" class="dg-l" text-anchor="middle">560 nm</text><text x="249.6" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">Red</tspan></text><text x="249.6" y="262" class="dg-l" text-anchor="middle">665 nm</text><text x="346.4" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">NIR</tspan></text><text x="346.4" y="262" class="dg-l" text-anchor="middle">842 nm</text><text x="443.2" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">SWIR1</tspan></text><text x="443.2" y="262" class="dg-l" text-anchor="middle">1610 nm</text><text x="540.0" y="248" class="dg-l" text-anchor="middle"><tspan class="dg-b">SWIR2</tspan></text><text x="540.0" y="262" class="dg-l" text-anchor="middle">2190 nm</text><text x="12" y="125" class="dg-l" transform="rotate(-90 12 125)" text-anchor="middle">Reflectance</text><polyline points="56.0,200.6 152.8,196.4 249.6,209.0 346.4,221.6 443.2,225.8 540.0,227.9" class="dg-sl dg-s1"/><circle cx="56.0" cy="200.6" r="4.5" class="dg-pt dg-s1"><title>Water, Blue: 0.07</title></circle><circle cx="152.8" cy="196.4" r="4.5" class="dg-pt dg-s1"><title>Water, Green: 0.08</title></circle><circle cx="249.6" cy="209.0" r="4.5" class="dg-pt dg-s1"><title>Water, Red: 0.05</title></circle><circle cx="346.4" cy="221.6" r="4.5" class="dg-pt dg-s1"><title>Water, NIR: 0.02</title></circle><circle cx="443.2" cy="225.8" r="4.5" class="dg-pt dg-s1"><title>Water, SWIR1: 0.01</title></circle><circle cx="540.0" cy="227.9" r="4.5" class="dg-pt dg-s1"><title>Water, SWIR2: 0.005</title></circle><text x="552" y="231.9" class="dg-l"><tspan class="dg-b">Water</tspan></text><polyline points="56.0,213.2 152.8,196.4 249.6,209.0 346.4,41.0 443.2,137.6 540.0,188.0" class="dg-sl dg-s2"/><circle cx="56.0" cy="213.2" r="4.5" class="dg-pt dg-s2"><title>Vegetation, Blue: 0.04</title></circle><circle cx="152.8" cy="196.4" r="4.5" class="dg-pt dg-s2"><title>Vegetation, Green: 0.08</title></circle><circle cx="249.6" cy="209.0" r="4.5" class="dg-pt dg-s2"><title>Vegetation, Red: 0.05</title></circle><circle cx="346.4" cy="41.0" r="4.5" class="dg-pt dg-s2"><title>Vegetation, NIR: 0.45</title></circle><circle cx="443.2" cy="137.6" r="4.5" class="dg-pt dg-s2"><title>Vegetation, SWIR1: 0.22</title></circle><circle cx="540.0" cy="188.0" r="4.5" class="dg-pt dg-s2"><title>Vegetation, SWIR2: 0.1</title></circle><text x="552" y="192.0" class="dg-l"><tspan class="dg-b">Vegetation</tspan></text><polyline points="56.0,188.0 152.8,167.0 249.6,146.0 346.4,125.0 443.2,95.6 540.0,112.4" class="dg-sl dg-s3"/><circle cx="56.0" cy="188.0" r="4.5" class="dg-pt dg-s3"><title>Bare soil, Blue: 0.1</title></circle><circle cx="152.8" cy="167.0" r="4.5" class="dg-pt dg-s3"><title>Bare soil, Green: 0.15</title></circle><circle cx="249.6" cy="146.0" r="4.5" class="dg-pt dg-s3"><title>Bare soil, Red: 0.2</title></circle><circle cx="346.4" cy="125.0" r="4.5" class="dg-pt dg-s3"><title>Bare soil, NIR: 0.25</title></circle><circle cx="443.2" cy="95.6" r="4.5" class="dg-pt dg-s3"><title>Bare soil, SWIR1: 0.32</title></circle><circle cx="540.0" cy="112.4" r="4.5" class="dg-pt dg-s3"><title>Bare soil, SWIR2: 0.28</title></circle><text x="552" y="116.4" class="dg-l"><tspan class="dg-b">Bare soil</tspan></text></svg><figcaption>Simplified spectral signatures at Sentinel-2 band centres. Values use typical surface reflectance, the share of light reflected from 0 to 1. They're illustrative; real values vary with sensor, season and site. Built-up surfaces look broadly like bare soil. Hover a point for its value.</figcaption></figure>
+<ul class="ticks plain"><li><b>Vegetation</b> absorbs red and reflects near-infrared (NIR) strongly: the basis of NDVI.</li><li><b>Water</b> is dark in NIR and SWIR: the basis of NDWI and MNDWI.</li><li><b>Soil and built-up land</b> brighten in shortwave infrared (SWIR): the basis of NDBI.</li><li><b>Burned land</b> loses NIR and gains SWIR2: the basis of NBR.</li></ul>
+<h2>The cheat sheet</h2>
+<div class="table-wrap"><table class="data-table"><caption>Common spectral indices</caption><thead><tr><th scope="col">Index</th><th scope="col">Formula</th><th scope="col">Highlights</th><th scope="col">Read more</th></tr></thead><tbody><tr><td>NDVI</td><td>(NIR − Red) ÷ (NIR + Red)</td><td>Green, healthy vegetation</td><td><a class='text-link' href='what-is-ndvi.html'>NDVI guide</a></td></tr><tr><td>EVI</td><td>2.5 × (NIR − Red) ÷ (NIR + 6·Red − 7.5·Blue + 1)</td><td>Vegetation in dense canopy, where NDVI saturates</td><td>Huete and others, 2002</td></tr><tr><td>SAVI</td><td>1.5 × (NIR − Red) ÷ (NIR + Red + 0.5)</td><td>Vegetation where soil shows through</td><td>Huete, 1988</td></tr><tr><td>NDWI</td><td>(Green − NIR) ÷ (Green + NIR)</td><td>Open water</td><td><a class='text-link' href='what-is-ndwi.html'>NDWI guide</a></td></tr><tr><td>MNDWI</td><td>(Green − SWIR1) ÷ (Green + SWIR1)</td><td>Open water, especially near cities</td><td><a class='text-link' href='what-is-ndwi.html'>NDWI guide</a></td></tr><tr><td>NDMI</td><td>(NIR − SWIR1) ÷ (NIR + SWIR1)</td><td>Moisture in vegetation (also called Gao's NDWI)</td><td>Gao, 1996</td></tr><tr><td>NDBI</td><td>(SWIR1 − NIR) ÷ (SWIR1 + NIR)</td><td>Built-up land and bare ground</td><td><a class='text-link' href='what-is-ndbi.html'>NDBI guide</a></td></tr><tr><td>NBR</td><td>(NIR − SWIR2) ÷ (NIR + SWIR2)</td><td>Burned land; dNBR shows severity</td><td><a class='text-link' href='normalized-burn-ratio-nbr.html'>NBR guide</a></td></tr></tbody></table></div>
+<p>EVI and SAVI aren't plain normalized differences: their constants (2.5, 6, 7.5, 1 and 0.5) reduce the effects of the atmosphere and of bright soil. Use surface reflectance (atmospherically corrected) data for all of these, not raw digital numbers.</p>
+<aside class="promo" aria-label="From PentoGIS"><p class="kicker">GIS service</p><p><b>Remote sensing analysis.</b> PentoGIS processes Sentinel-2 and Landsat imagery into index maps, classifications and change statistics for your area. <a class="text-link" href="../services.html">See remote sensing services →</a></p></aside>
+<h2>Which band is which</h2>
+<div class="table-wrap"><table class="data-table"><caption>Band numbers by satellite</caption><thead><tr><th scope="col">Band</th><th scope="col">Wavelength (approx.)</th><th scope="col">Sentinel-2</th><th scope="col">Landsat 8 and 9</th></tr></thead><tbody><tr><td>Blue</td><td>490 nm</td><td>B2 (10 m)</td><td>B2 (30 m)</td></tr><tr><td>Green</td><td>560 nm</td><td>B3 (10 m)</td><td>B3 (30 m)</td></tr><tr><td>Red</td><td>665 nm</td><td>B4 (10 m)</td><td>B4 (30 m)</td></tr><tr><td>NIR</td><td>842 nm (865 narrow)</td><td>B8 (10 m), B8A (20 m)</td><td>B5 (30 m)</td></tr><tr><td>SWIR1</td><td>1610 nm</td><td>B11 (20 m)</td><td>B6 (30 m)</td></tr><tr><td>SWIR2</td><td>2190 nm</td><td>B12 (20 m)</td><td>B7 (30 m)</td></tr></tbody></table></div>
+<p>Band numbers differ between satellites, and older Landsat 5 and 7 use different numbers again (for example, NIR is band 4). Getting the bands wrong is the most common index mistake.</p>
+<h2>Worked values for each index</h2>
+<div class="table-wrap"><table class="data-table"><caption>Index values for typical surfaces</caption><thead><tr><th scope="col">Surface</th><th scope="col" class="num">NDVI</th><th scope="col" class="num">NDWI</th><th scope="col" class="num">MNDWI</th><th scope="col" class="num">NDMI</th><th scope="col" class="num">NDBI</th><th scope="col" class="num">NBR</th></tr></thead><tbody><tr><td>Water</td><td class="num">−0.43</td><td class="num">+0.60</td><td class="num">+0.78</td><td class="num">+0.33</td><td class="num">−0.33</td><td class="num">+0.60</td></tr><tr><td>Vegetation</td><td class="num">+0.80</td><td class="num">−0.70</td><td class="num">−0.47</td><td class="num">+0.34</td><td class="num">−0.34</td><td class="num">+0.64</td></tr><tr><td>Bare soil</td><td class="num">+0.11</td><td class="num">−0.25</td><td class="num">−0.36</td><td class="num">−0.12</td><td class="num">+0.12</td><td class="num">−0.06</td></tr><tr><td>Built-up</td><td class="num">+0.08</td><td class="num">−0.14</td><td class="num">−0.30</td><td class="num">−0.17</td><td class="num">+0.17</td><td class="num">−0.11</td></tr></tbody></table></div>
+<p>Notice that water scores high on NDMI and NBR too. Both bands are close to zero over water, so the ratio is unstable. That's why water is usually masked out, with NDWI or MNDWI, before using moisture or burn indices.</p>
+<h2>Tips</h2>
+<ul class="ticks plain"><li><b>Compare like with like</b>: same season, same sensor, same processing level.</li><li><b>Mask clouds, shadows and water</b> first.</li><li><b>Mind resolution</b>: Sentinel-2's SWIR bands are 20 m, so SWIR-based indices are coarser than NDVI at 10 m.</li><li><b>Indices are evidence, not answers</b>: check them against known places or field data.</li></ul>
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Which index should I start with?</summary><p>NDVI for vegetation, MNDWI for water, NBR for fire. Most projects use two or three together.</p></details><details><summary>Can I calculate these in free software?</summary><p>Yes: QGIS's Raster Calculator, Google Earth Engine, or Python with rasterio and NumPy.</p></details><details><summary>Do drones work?</summary><p>Yes, if the camera records the needed bands. Most multispectral drone cameras include red and NIR, but few have SWIR.</p></details></div>
+
+<aside class="article-cta">
+<p class="kicker">Need index maps for a project?</p>
+<h2>We'll turn imagery into answers.</h2>
+<p>Vegetation, water, moisture, burn or urban growth: we pick the right indices and validate the results.</p>
+<div class="btns"><a class="btn primary" href="../contact.html">Talk to us</a><a class="btn ghost" href="../maps.html#land-cover">See land cover maps</a></div>
+</aside>
+<nav class="related" aria-label="Related articles"><p class="kicker">Keep reading</p><ul><li><a href="what-is-ndvi.html"><span>Remote sensing</span>What is NDVI? Measuring vegetation from space</a></li><li><a href="what-is-ndwi.html"><span>Remote sensing</span>What is NDWI? Mapping water from space</a></li><li><a href="normalized-burn-ratio-nbr.html"><span>Remote sensing</span>Normalized Burn Ratio (NBR): mapping wildfire burn severity</a></li></ul></nav>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="../services.html">Services</a><a href="../maps.html">Maps</a><a href="../industries.html">Industries</a><a href="../tools.html">Tools</a><a href="./">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

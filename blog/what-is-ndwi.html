@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Is NDWI? Water Index, MNDWI and the Two NDWIs Explained | PentoGIS</title>
+<meta name="description" content="What NDWI is, why there are two different NDWI formulas, how MNDWI improves water mapping near cities, worked values, satellite bands and uses.">
+<link rel="canonical" href="https://pentogis.com/blog/what-is-ndwi">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="What is NDWI? Mapping water from space | PentoGIS">
+<meta property="og:description" content="How satellites pick out water, why &quot;NDWI&quot; can mean two different things, and when to use MNDWI instead.">
+<meta property="og:url" content="https://pentogis.com/blog/what-is-ndwi">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="../brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What is NDWI? Mapping water from space","description":"What NDWI is, why there are two different NDWI formulas, how MNDWI improves water mapping near cities, worked values, satellite bands and uses.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Organization","name":"PentoGIS","url":"https://pentogis.com/"},"publisher":{"@type":"Organization","name":"PentoGIS","logo":{"@type":"ImageObject","url":"https://pentogis.com/brand/png/pentogis-social-avatar-1024.png"}},"mainEntityOfPage":"https://pentogis.com/blog/what-is-ndwi","image":"https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="PentoGIS home"><img src="../logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="../services.html">Services</a>
+    <a href="../maps.html">Maps</a>
+    <a href="../industries.html">Industries</a>
+    <a href="../tools.html">Tools</a>
+    <a href="./" aria-current="page">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+<header class="page-hero article-hero">
+  <div class="reveal">
+    <p class="kicker"><a href="./">Blog</a> / Remote sensing</p>
+    <h1>What is NDWI? Mapping water from space</h1>
+    <p class="lead">How satellites pick out water, why "NDWI" can mean two different things, and when to use MNDWI instead.</p>
+    <p class="byline">PentoGIS · <time datetime="2026-10-24">24 October 2026</time> · 6 min read</p>
+  </div>
+</header>
+
+<div class="article-body">
+<p>The <strong>Normalized Difference Water Index (NDWI)</strong> highlights open water in satellite imagery. Like <a class='text-link' href='what-is-ndvi.html'>NDVI</a>, it compares two bands of light and gives a value from −1 to 1. Water scores high; land scores low. It's used to map lakes, rivers, reservoirs and floods, and to track how shorelines and wetlands change.</p>
+<h2>How NDWI works</h2>
+<p>Water reflects a little green light but absorbs almost all near-infrared (NIR). Vegetation and soil do the opposite: they reflect far more NIR than green. The index, published by McFeeters in 1996, contrasts the two:</p>
+<p class="formula">NDWI = (Green − NIR) ÷ (Green + NIR)</p>
+<p>Positive values usually mean water; zero and below usually mean land. A threshold of 0 is a common starting point, tuned for each scene.</p>
+<h2>Careful: there are two NDWIs</h2>
+<p>Also in 1996, Gao published a different index with the same name: <b>(NIR − SWIR) ÷ (NIR + SWIR)</b>. It measures the <em>water content of vegetation</em>, not open water, and is now usually called the <b>Normalized Difference Moisture Index (NDMI)</b>. Software and papers still mix the two up. Before using an "NDWI" layer, check which bands went into it.</p>
+<div class="table-wrap"><table class="data-table"><caption>The two NDWIs</caption><thead><tr><th scope="col"></th><th scope="col">McFeeters NDWI</th><th scope="col">Gao NDWI (NDMI)</th></tr></thead><tbody><tr><td>Bands</td><td>Green and NIR</td><td>NIR and shortwave infrared (SWIR)</td></tr><tr><td>Measures</td><td>Open water</td><td>Moisture in leaves and canopy</td></tr><tr><td>High values mean</td><td>Water</td><td>Well-watered vegetation</td></tr><tr><td>Typical uses</td><td>Lakes, floods, shorelines</td><td>Drought stress, fire risk, irrigation</td></tr></tbody></table></div>
+<h2>MNDWI: better water maps near cities</h2>
+<p>Built-up surfaces can also reflect more green than NIR, so NDWI sometimes mistakes roofs and roads for water. In 2006, Xu proposed the <b>Modified NDWI (MNDWI)</b>, which swaps NIR for shortwave infrared:</p>
+<p class="formula">MNDWI = (Green − SWIR1) ÷ (Green + SWIR1)</p>
+<p>Built-up land reflects strongly in SWIR, so its MNDWI drops further below zero, while water stays high.</p>
+<figure class="diagram-figure"><svg class="diagram" viewBox="0 0 640 234" role="img" aria-labelledby="ndwi-t ndwi-d"><title id="ndwi-t">NDWI and MNDWI for typical surfaces</title><desc id="ndwi-d">Bars compare NDWI and MNDWI. Water is positive on both, 0.60 and 0.78. Vegetation, bare soil and built-up land are negative; MNDWI pushes built-up land further below zero, minus 0.30 instead of minus 0.14.</desc><rect x="0" y="4" width="14" height="10" rx="2" class="dg-s1"/><text x="20" y="13" class="dg-l">NDWI (green, NIR)</text><rect x="160" y="4" width="14" height="10" rx="2" class="dg-s3"/><text x="180" y="13" class="dg-l">MNDWI (green, SWIR)</text><text x="0" y="51" class="dg-l">Water</text><rect x="375.0" y="34" width="147.0" height="11" rx="2" class="dg-s1"><title>Water: +0.60</title></rect><text x="528.0" y="43" class="dg-v" text-anchor="start">+0.60</text><rect x="375.0" y="47" width="191.1" height="11" rx="2" class="dg-s3"><title>Water: +0.78</title></rect><text x="572.1" y="56" class="dg-v" text-anchor="start">+0.78</text><text x="0" y="91" class="dg-l">Vegetation</text><rect x="203.5" y="74" width="171.5" height="11" rx="2" class="dg-s1"><title>Vegetation: -0.70</title></rect><text x="197.5" y="83" class="dg-v" text-anchor="end">-0.70</text><rect x="259.9" y="87" width="115.1" height="11" rx="2" class="dg-s3"><title>Vegetation: -0.47</title></rect><text x="253.9" y="96" class="dg-v" text-anchor="end">-0.47</text><text x="0" y="131" class="dg-l">Bare soil</text><rect x="313.8" y="114" width="61.2" height="11" rx="2" class="dg-s1"><title>Bare soil: -0.25</title></rect><text x="307.8" y="123" class="dg-v" text-anchor="end">-0.25</text><rect x="286.8" y="127" width="88.2" height="11" rx="2" class="dg-s3"><title>Bare soil: -0.36</title></rect><text x="280.8" y="136" class="dg-v" text-anchor="end">-0.36</text><text x="0" y="171" class="dg-l">Built-up</text><rect x="340.7" y="154" width="34.3" height="11" rx="2" class="dg-s1"><title>Built-up: -0.14</title></rect><text x="334.7" y="163" class="dg-v" text-anchor="end">-0.14</text><rect x="301.5" y="167" width="73.5" height="11" rx="2" class="dg-s3"><title>Built-up: -0.30</title></rect><text x="295.5" y="176" class="dg-v" text-anchor="end">-0.30</text><line x1="375.0" y1="28" x2="375.0" y2="194" class="dg-axis"/><text x="130.0" y="210" class="dg-l" text-anchor="middle">-1</text><text x="252.5" y="210" class="dg-l" text-anchor="middle">-0.5</text><text x="375.0" y="210" class="dg-l" text-anchor="middle">0</text><text x="497.5" y="210" class="dg-l" text-anchor="middle">0.5</text><text x="620.0" y="210" class="dg-l" text-anchor="middle">1</text><text x="381.0" y="226" class="dg-l">Above 0: likely water →</text></svg><figcaption>Values use typical surface reflectance, the share of light reflected from 0 to 1. They're illustrative; real values vary with sensor, season and site. Hover a bar to see its value.</figcaption></figure>
+<div class="table-wrap"><table class="data-table"><caption>Worked values</caption><thead><tr><th scope="col">Surface</th><th scope="col" class="num">Green</th><th scope="col" class="num">NIR</th><th scope="col" class="num">SWIR1</th><th scope="col" class="num">NDWI</th><th scope="col" class="num">MNDWI</th></tr></thead><tbody><tr><td>Water</td><td class="num">0.08</td><td class="num">0.02</td><td class="num">0.01</td><td class="num">+0.60</td><td class="num">+0.78</td></tr><tr><td>Vegetation</td><td class="num">0.08</td><td class="num">0.45</td><td class="num">0.22</td><td class="num">−0.70</td><td class="num">−0.47</td></tr><tr><td>Bare soil</td><td class="num">0.15</td><td class="num">0.25</td><td class="num">0.32</td><td class="num">−0.25</td><td class="num">−0.36</td></tr><tr><td>Built-up</td><td class="num">0.15</td><td class="num">0.20</td><td class="num">0.28</td><td class="num">−0.14</td><td class="num">−0.30</td></tr></tbody></table></div>
+<p>For water: NDWI = (0.08 − 0.02) ÷ (0.08 + 0.02) = 0.60.</p>
+<aside class="promo" aria-label="From PentoGIS"><p class="kicker">Map service</p><p><b>Flood and water mapping.</b> PentoGIS maps open water, flood extents and shoreline change from satellite imagery, with areas by date for your watershed or town. <a class="text-link" href="../maps.html#flood-heat">See flood and heat maps →</a></p></aside>
+<h2>Which bands to use</h2>
+<div class="table-wrap"><table class="data-table"><caption>Bands for NDWI and MNDWI</caption><thead><tr><th scope="col">Satellite</th><th scope="col">Green</th><th scope="col">NIR</th><th scope="col">SWIR1</th><th scope="col">Resolution</th></tr></thead><tbody><tr><td>Sentinel-2</td><td>B3</td><td>B8</td><td>B11</td><td>10 m (SWIR 20 m)</td></tr><tr><td>Landsat 8 and 9</td><td>B3</td><td>B5</td><td>B6</td><td>30 m</td></tr></tbody></table></div>
+<p>MNDWI uses SWIR, which Sentinel-2 records at 20 m rather than 10 m, so MNDWI maps are slightly coarser.</p>
+<h2>Uses</h2>
+<ul class="ticks plain"><li><b>Flood mapping</b>: comparing water extent before and after a storm.</li><li><b>Reservoirs and drought</b>: tracking how much a lake has shrunk.</li><li><b>Shorelines and wetlands</b>: measuring erosion, accretion and seasonal flooding.</li><li><b>Masking</b>: removing water before calculating other indices, since water distorts burn and moisture indices.</li></ul>
+<h2>Limits</h2>
+<ul class="ticks plain"><li><b>Clouds and cloud shadows</b> can look like water. Radar satellites such as Sentinel-1 see through clouds and are often used for floods.</li><li><b>Muddy or shallow water</b> reflects more NIR and can score near zero.</li><li><b>Shadows</b> from mountains and tall buildings are dark in all bands and can be mistaken for water.</li><li><b>Thresholds vary</b>. Zero is a guide; the best cut-off differs between scenes.</li></ul>
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Is NDWI the same as NDMI?</summary><p>Gao's NDWI is the same formula as NDMI. McFeeters' NDWI, the water-body index, is different. Check the bands.</p></details><details><summary>Can NDWI map floods under clouds?</summary><p>No. Optical satellites can't see through cloud. Radar such as Sentinel-1 is used for that.</p></details><details><summary>What threshold should I use?</summary><p>Start at 0 and adjust by checking against known water in the same image.</p></details></div>
+
+<aside class="article-cta">
+<p class="kicker">Need water or flood maps?</p>
+<h2>We'll map water extent and how it changes.</h2>
+<p>Floods, reservoirs, shorelines or wetlands: tell us the place and the dates.</p>
+<div class="btns"><a class="btn primary" href="../contact.html">Talk to us</a><a class="btn ghost" href="../maps.html#flood-heat">See flood and heat maps</a></div>
+</aside>
+<nav class="related" aria-label="Related articles"><p class="kicker">Keep reading</p><ul><li><a href="what-is-ndvi.html"><span>Remote sensing</span>What is NDVI? Measuring vegetation from space</a></li><li><a href="spectral-indices-cheat-sheet.html"><span>Remote sensing</span>Spectral indices cheat sheet: NDVI, NDWI, NBR and more</a></li><li><a href="normalized-burn-ratio-nbr.html"><span>Remote sensing</span>Normalized Burn Ratio (NBR): mapping wildfire burn severity</a></li></ul></nav>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="../services.html">Services</a><a href="../maps.html">Maps</a><a href="../industries.html">Industries</a><a href="../tools.html">Tools</a><a href="./">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
