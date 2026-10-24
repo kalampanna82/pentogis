@@ -23,6 +23,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 
 ## Rules
 - This repo is PentoGIS only. Do not add immigration, tax, Visa Bulletin or other One Path Finder content here (a Visa Bulletin tool was added by mistake in PR #2 and removed in PR #3).
+- FixPixz (fixpixz.com) is the owner's sister platform for image editing. PentoGIS refers image work to it (Services section `#image-services` and a footer link on every page). Keep it a referral; don't list image editing as a PentoGIS service.
 - Do not touch the owner's other domains or projects (onepathfinder.com, 1pathfinder.com, getready.*, musafir.travel). Never redirect them here.
 - Match existing style and markup. No new dependencies without a stated reason.
 - No PII logging. Don't add forms that send or store visitor data without the owner's decision.
@@ -39,6 +40,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Real page content went live (PR #7: Services, Industries, About, Contact, phone menu, mailto contact form). Owner reviewed every service, industry and toolkit item and confirmed them. Change these lists only when the owner asks.
 - 2026-10-24: Added 404 page, robots.txt, sitemap.xml, `_headers`, home-page structured data; replaced emoji card icons with gold line SVG icons; canonical URLs now extensionless (`/about`), matching Cloudflare Pages. HSTS left to the owner's Cloudflare settings.
 - 2026-10-24: Added "How we engage" (project-based, hourly, retainer; no prices) to Services and an FAQ to Contact. Contact form stays mailto (owner had no preference on a form service); it now shows a fallback message after submit.
+- 2026-10-24: Owner asked to refer image masking, clipping path and other image services to sister platform fixpixz.com with a backlink. Service list on the Services page is a first draft for the owner to confirm against what FixPixz offers.
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.
