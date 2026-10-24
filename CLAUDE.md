@@ -38,4 +38,11 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Repo renamed to `kalampanna82/pentogis.com` to match the domain.
 - 2026-10-24: Real page content went live (PR #7: Services, Industries, About, Contact, phone menu, mailto contact form). Owner reviewed every service, industry and toolkit item and confirmed them. Change these lists only when the owner asks.
 - 2026-10-24: Added 404 page, robots.txt, sitemap.xml, `_headers`, home-page structured data; replaced emoji card icons with gold line SVG icons; canonical URLs now extensionless (`/about`), matching Cloudflare Pages. HSTS left to the owner's Cloudflare settings.
-- Open: a "Selected work" or case-study section needs real project examples from the owner.
+- 2026-10-24: Added "How we engage" (project-based, hourly, retainer; no prices) to Services and an FAQ to Contact. Contact form stays mailto (owner had no preference on a form service); it now shows a fallback message after submit.
+
+## Roadmap (needs the owner)
+Don't invent any of this content; wait for the owner's material.
+1. Selected work / case studies: 2-3 real projects (problem, client type, deliverable, an image). Highest priority.
+2. About: the person behind PentoGIS (name, photo, background, certifications, LinkedIn).
+3. Contact form service (e.g. Web3Forms or Formspree) so inquiries work without an email app. Owner to choose; it sends visitor data to a third party.
+4. Owner's accounts: Google Search Console (submit `/sitemap.xml`), Google Business Profile, Cloudflare Web Analytics.
