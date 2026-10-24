@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Is a Slope Map? Percent vs Degrees, Uses and How It's Made | PentoGIS</title>
+<meta name="description" content="What a slope map shows, percent slope vs degrees, how slope is calculated from elevation data, common thresholds, and how to read one.">
+<link rel="canonical" href="https://pentogis.com/blog/what-is-a-slope-map">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PentoGIS">
+<meta property="og:title" content="What is a slope map? | PentoGIS">
+<meta property="og:description" content="How steep is the land, and why does it matter? A plain guide to slope, percent versus degrees, and reading a slope map.">
+<meta property="og:url" content="https://pentogis.com/blog/what-is-a-slope-map">
+<meta property="og:image" content="https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/svg+xml" href="../brand/svg/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../brand/png/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What is a slope map?","description":"What a slope map shows, percent slope vs degrees, how slope is calculated from elevation data, common thresholds, and how to read one.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Organization","name":"PentoGIS","url":"https://pentogis.com/"},"publisher":{"@type":"Organization","name":"PentoGIS","logo":{"@type":"ImageObject","url":"https://pentogis.com/brand/png/pentogis-social-avatar-1024.png"}},"mainEntityOfPage":"https://pentogis.com/blog/what-is-a-slope-map","image":"https://pentogis.com/brand/png/pentogis-og-banner-1200x630.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../index.html" aria-label="PentoGIS home"><img src="../logo-mark.png" alt="" class="mark-img" width="64" height="64"><span>PENTO<i>GIS</i></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="links" id="site-links" aria-label="Main">
+    <a href="../services.html">Services</a>
+    <a href="../maps.html">Maps</a>
+    <a href="../industries.html">Industries</a>
+    <a href="../tools.html">Tools</a>
+    <a href="./" aria-current="page">Blog</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="cta">Contact</a>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+<header class="page-hero article-hero">
+  <div class="reveal">
+    <p class="kicker"><a href="./">Blog</a> / Maps explained</p>
+    <h1>What is a slope map?</h1>
+    <p class="lead">How steep is the land, and why does it matter? A plain guide to slope, percent versus degrees, and reading a slope map.</p>
+    <p class="byline">PentoGIS · <time datetime="2026-10-24">24 October 2026</time> · 6 min read</p>
+  </div>
+</header>
+
+<div class="article-body">
+<p>A <strong>slope map</strong> shows how steep the ground is at every location. Each cell of the map holds the steepness of the land there, calculated from elevation data, and colours group those values into classes such as "flat", "moderate" and "steep". Planners, engineers and developers use slope maps to see at a glance where land can be built on, where grading will be expensive, and where erosion and landslides are a risk.</p>
+<h2>Slope in percent and in degrees</h2>
+<p>Slope is <em>rise over run</em>: how far the ground goes up for each unit you move horizontally. It can be written two ways:</p>
+<ul class="ticks plain"><li><b>Percent slope</b> = rise ÷ run × 100. Rising 10 m over 100 m is a 10% slope.</li><li><b>Degrees</b> = the angle of the ground from horizontal, which is the arctangent of rise ÷ run. A 10% slope is 5.7°.</li></ul>
+<p>The two scales are not proportional. A <b>100% slope is 45°</b>, not vertical: it rises one metre for every metre across. Engineering and planning rules in the US usually use percent; geology and some software default to degrees, so always check which one a map uses.</p>
+<figure class="diagram-figure"><svg class="diagram" viewBox="0 0 640 280" role="img" aria-labelledby="slope-t slope-d"><title id="slope-t">Percent slope compared with degrees</title><desc id="slope-d">Five lines rise from the same point at 5, 15, 25, 50 and 100 percent slope, which are 2.9, 8.5, 14.0, 26.6 and 45 degrees. A 100 percent slope is 45 degrees, not vertical.</desc><line x1="40" y1="250" x2="480" y2="250" class="dg-axis"/><line x1="40" y1="250" x2="460.0" y2="229.0" stroke="#cfa65a" class="dg-line"/><text x="468.0" y="233.0" class="dg-l"><tspan class="dg-b">5%</tspan> = 2.9°</text><line x1="40" y1="250" x2="460.0" y2="187.0" stroke="#cfa65a" class="dg-line"/><text x="468.0" y="191.0" class="dg-l"><tspan class="dg-b">15%</tspan> = 8.5°</text><line x1="40" y1="250" x2="460.0" y2="145.0" stroke="#cfa65a" class="dg-line"/><text x="468.0" y="149.0" class="dg-l"><tspan class="dg-b">25%</tspan> = 14.0°</text><line x1="40" y1="250" x2="460.0" y2="40.0" stroke="#cfa65a" class="dg-line"/><text x="468.0" y="44.0" class="dg-l"><tspan class="dg-b">50%</tspan> = 26.6°</text><line x1="40" y1="250" x2="252.1" y2="37.9" stroke="#f6e3b4" class="dg-line"/><text x="260.1" y="41.9" class="dg-l"><tspan class="dg-b">100%</tspan> = 45.0°</text><text x="40" y="274" class="dg-l">Horizontal distance (run)</text></svg><figcaption>Each line rises at a different percent slope from the same point. Angles are calculated as arctan(percent ÷ 100).</figcaption></figure>
+<div class="table-wrap"><table class="data-table"><caption>Common slopes in percent and degrees</caption><thead><tr><th scope="col" class="num">Percent slope</th><th scope="col" class="num">Degrees</th><th scope="col">Where you'd meet it</th></tr></thead><tbody><tr><td class="num">2%</td><td class="num">1.1°</td><td>Typical minimum for drainage on paved surfaces</td></tr><tr><td class="num">5%</td><td class="num">2.9°</td><td>Maximum running slope for an accessible route (ADA)</td></tr><tr><td class="num">8.33%</td><td class="num">4.8°</td><td>Maximum ramp slope under the ADA (1:12)</td></tr><tr><td class="num">15%</td><td class="num">8.5°</td><td>Where many steep-slope rules begin</td></tr><tr><td class="num">25%</td><td class="num">14.0°</td><td>Often treated as very steep or undevelopable</td></tr><tr><td class="num">100%</td><td class="num">45.0°</td><td>Rises one metre per metre</td></tr></tbody></table></div>
+<h2>How a slope map is made</h2>
+<p>Slope is calculated from a <b>digital elevation model (DEM)</b>, a grid where every cell stores ground height. For each cell, GIS software compares the heights of its eight neighbours to find the steepest rate of change. A widely used method (Horn's, the default in GDAL; ArcGIS uses a similar 3 × 3 window) weights the closest neighbours more heavily to reduce noise.</p>
+<p>The result depends heavily on the elevation data:</p>
+<ul class="ticks plain"><li><b>Resolution.</b> A 1 m lidar DEM picks up road cuts, ditches and small banks. A 30 m DEM averages them away and tends to underestimate steep slopes.</li><li><b>Ground vs surface.</b> Use a bare-earth model. A surface model that includes trees and buildings shows the slope of rooftops and canopy, not land.</li><li><b>Units.</b> Elevation and cell size must be in the same unit. Mixing feet of height with metres of distance, or using latitude/longitude cells without conversion, gives wrong slopes.</li></ul>
+<p>In the US, the USGS 3D Elevation Program (3DEP) provides 1 m lidar-derived DEMs across much of the country, and 1/3 arc-second (about 10 m) data nationwide.</p>
+<aside class="promo" aria-label="From PentoGIS"><p class="kicker">Map service</p><p><b>Slope maps from PentoGIS.</b> We build slope maps from the best available lidar, classified to your local thresholds, with area totals for every parcel. <a class="text-link" href="../slope-map.html">See an example slope map →</a></p></aside>
+<h2>How to read a slope map</h2>
+<p>Start with the legend: check whether classes are in percent or degrees and where the breaks fall. Then look for patterns rather than single cells:</p>
+<ul class="ticks plain"><li><b>Large flat areas</b> (often 0–5%) are the easiest to build on, but check them for flooding: valley floors are flat for a reason.</li><li><b>Bands of steep slope</b> along streams and ridges usually mark land to avoid or protect.</li><li><b>Scattered steep cells</b> in flat areas are often small features such as banks and ditches, or noise in the data.</li></ul>
+<p>A slope map is often the first layer in a <a class="text-link" href="what-is-suitability-analysis.html">suitability analysis</a>, where it is combined with zoning, access and other factors.</p>
+<h2>Maps that go with slope</h2>
+<ul class="ticks plain"><li><b>Aspect</b>: which direction a slope faces. South-facing slopes in the northern hemisphere get more sun, which matters for solar and agriculture.</li><li><b>Hillshade</b>: a shaded-relief image that makes terrain easy to read.</li><li><b>Contours</b>: lines of equal elevation, familiar from survey and topographic maps.</li></ul>
+<h2>Frequently asked questions</h2><div class="faq"><details><summary>Is a 100% slope vertical?</summary><p>No. 100% is 45°: one unit up for every unit across. A vertical cliff would be an infinite percent slope.</p></details><details><summary>What resolution should I use?</summary><p>For site-level work, the finest bare-earth DEM available, ideally 1 m lidar. For regional screening, 10 m is usually enough.</p></details><details><summary>Can I get slope for a single parcel?</summary><p>Yes. Slope can be clipped to a parcel and summarised as area in each class, which is how it is used in site plans and due diligence.</p></details></div>
+
+<aside class="article-cta">
+<p class="kicker">Need a slope map for a site?</p>
+<h2>We'll map the slope and total the buildable area.</h2>
+<p>Send us an address, parcel or boundary, and we'll deliver slope maps, GIS layers and area by class.</p>
+<div class="btns"><a class="btn primary" href="../contact.html">Start a slope map</a><a class="btn ghost" href="../slope-map.html">See an example</a></div>
+</aside>
+<nav class="related" aria-label="Related articles"><p class="kicker">Keep reading</p><ul><li><a href="what-is-suitability-analysis.html"><span>GIS methods</span>What is suitability analysis?</a></li><li><a href="raster-vs-vector-data.html"><span>GIS basics</span>Raster vs vector data: what's the difference?</a></li><li><a href="how-to-read-map-scale.html"><span>Maps explained</span>How to read a map scale</a></li></ul></nav>
+</div>
+</article>
+</main>
+<footer>
+  <div class="foot-brand"><b>PENTO<i>GIS</i></b><span>Geospatial intelligence • AI • Mapping</span></div>
+  <nav class="foot-links" aria-label="Footer"><a href="../services.html">Services</a><a href="../maps.html">Maps</a><a href="../industries.html">Industries</a><a href="../tools.html">Tools</a><a href="./">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="mailto:info@pentogis.com">info@pentogis.com</a><a href="https://fixpixz.com/">FixPixz image editing</a></nav>
+  <span class="foot-copy">© <span id="year"></span> PentoGIS</span>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
