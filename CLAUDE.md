@@ -1,6 +1,6 @@
 # PentoGIS (pentogis.com)
 
-PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Maps (one landing page per map type), Industries, Tools, About, Contact.
+PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Maps (one landing page per map type), Industries, Tools, Blog, About, Contact.
 Owner: kalampanna82. GitHub repo: `kalampanna82/pentogis.com` (renamed from `pentogis`; the old URL redirects, never create a new repo with the old name).
 
 ## Stack and commands
@@ -17,6 +17,7 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - Map-type pages: one page per type, named `<type>-map.html` (e.g. `flood-map.html`). Each has a hero, a real example map with legend, caption and a class table, who uses it, deliverables, process and a call to action, plus `Service` JSON-LD. Add or update its tab panel on `maps.html` and the URL to `sitemap.xml`.
 - Example maps must come from real, credited data (state the source and resolution in the caption); never fake or invented maps. Colour ramps: one hue stepping dark to light for magnitude; check adjacent steps with the dataviz palette validator (normal-vision ΔE ≥ 15). The slope map uses `#352a1a #66502a #9a7a3e #cfa65a #f6e3b4`.
 - `tools.html` + `tools.js`: free GIS tools (coordinate converter with UTM, map scale converter, distance and area). Browser-only: never send or store what visitors type. UTM maths was checked against pyproj (sub-millimetre).
+- `blog/`: `index.html` lists posts (newest first, one card each); posts are `blog/<slug>.html`. Pages in `blog/` use `../` for site links and `./` for the blog index. Each post has a byline with date and read time, `BlogPosting` JSON-LD, `og:type` article, a call to action, and its URL in `sitemap.xml`. Write in plain language for planners and clients; facts must be accurate, and any example data must be labelled as illustrative or credited.
 - `brand/`: logo kit (`svg/`, `png/`; see `brand/README.md` for files, colours and usage rules)
 - `logo-mark.png`: header logo (favicons come from `brand/`)
 - `404.html`: missing-page page; uses root-absolute paths (`/styles.css`) because it is served at any URL
@@ -50,11 +51,12 @@ Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll revea
 - 2026-10-24: Added 404 page, robots.txt, sitemap.xml, `_headers`, home-page structured data; replaced emoji card icons with gold line SVG icons; canonical URLs now extensionless (`/about`), matching Cloudflare Pages. HSTS left to the owner's Cloudflare settings.
 - 2026-10-24: Added "How we engage" (project-based, hourly, retainer; no prices) to Services and an FAQ to Contact. Contact form stays mailto (owner had no preference on a form service); it now shows a fallback message after submit.
 - 2026-10-24: Owner asked to refer image masking, clipping path and other image services to sister platform fixpixz.com with a backlink. Service list on the Services page is a first draft for the owner to confirm against what FixPixz offers.
-- 2026-10-24: Added a Tools page (owner picked: coordinate converter, map scale converter, distance and area calculator) and a Tools link in the nav and footer. Phone menu now switches on below 980px (was 680px) so five nav links never overlap the logo.
+- 2026-10-24: Added a Tools page (owner picked: coordinate converter, map scale converter, distance and area calculator) and a Tools link in the nav and footer. Phone menu now switches on below 1080px (was 680px) so the nav links never overlap the logo.
 - 2026-10-24: Owner asked for the tools to sit behind buttons at the top: one tool shows at a time, clicking the open tool's button closes it, `tools.html#scale` (or `#coordinates`, `#distance`) opens that tool directly.
 - 2026-10-24: Owner asked for clickable preview and live links with every PR or merge request (rule under Workflow).
 - 2026-10-24: Owner asked for landing pages per map type, starting with slope maps. Added `maps.html` (hub) and `slope-map.html` with a real example (USGS DEM near Jacksboro, TN, from Matplotlib's sample data, about 90 m), and Maps in the main nav and footer.
 - 2026-10-24: Owner asked for a tab for the types of map we offer: Maps page now has eight map-type tab buttons; tab code moved to `script.js` so Tools and Maps share it.
+- 2026-10-24: Owner asked for a blog post on what suitability analysis is: added `blog/` with an index and the article (worked weighted-overlay example computed in an inline SVG, solar siting weights marked illustrative). Blog added to the main nav and footer; phone menu now applies below 1080px so seven nav links fit.
 
 ## Roadmap (needs the owner)
 Don't invent any of this content; wait for the owner's material.
