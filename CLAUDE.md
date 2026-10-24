@@ -1,0 +1,35 @@
+# PentoGIS (pentogis.com)
+
+PentoGIS: GIS, mapping, remote sensing, AI/ML, planning, dashboards and geospatial software services. Pages: Home, Services, Industries, About, Contact.
+Owner: kalampanna82.
+
+## Stack and commands
+Plain static HTML, one shared `styles.css`, one shared `script.js` (scroll reveal, footer year, nav background). No framework, no package.json, no build step.
+- Run locally: `python3 -m http.server 8000`, then open http://localhost:8000
+- "Build": none. Check by loading the page at phone width (about 400px) and desktop.
+- HTML and CSS are minified onto few lines. Keep that style when editing; don't reformat whole files.
+- Hosting: not recorded here yet. Ask the owner before assuming how pushes deploy.
+
+## Folder map
+- `index.html`, `services.html`, `industries.html`, `about.html`, `contact.html`: the pages
+- `brand/`: logo kit (`svg/`, `png/`; see `brand/README.md` for files, colours and usage rules)
+- `logo-mark.png` (header logo), `favicon.png`: root copies used by the pages
+
+## Brand
+- Obsidian and gold palette (see `:root` in `styles.css` and `brand/README.md`). Use the CSS variables, not new hard-coded colours. The variable names (`--cyan`, `--blue`, `--green`) are leftovers from an older palette; they now hold gold tones.
+- Follow the logo rules in `brand/README.md` (no recolouring, stretching, or moving the gold wedge).
+
+## Rules
+- This repo is PentoGIS only. Do not add immigration, tax, Visa Bulletin or other One Path Finder content here (a Visa Bulletin tool was added by mistake in PR #2 and removed in PR #3).
+- Do not touch the owner's other domains or projects (onepathfinder.com, 1pathfinder.com, getready.*, musafir.travel). Never redirect them here.
+- Match existing style and markup. No new dependencies without a stated reason.
+- No PII logging. Don't add forms that send or store visitor data without the owner's decision.
+
+## Workflow
+- Pull requests only, never push to `main`. Keep each PR small and focused, with a description and test steps. The owner reviews and merges, unless he explicitly asks Claude to merge.
+- The owner handles logins, DNS and hosting settings. Do not attempt these.
+- At the end of each session, update "Decisions and open items" below.
+
+## Decisions and open items
+- 2026-10-24: Added this CLAUDE.md.
+- Open: record where the site is hosted and how it deploys.
